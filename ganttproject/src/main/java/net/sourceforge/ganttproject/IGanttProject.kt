@@ -34,6 +34,7 @@ import net.sourceforge.ganttproject.roles.RoleManager
 import net.sourceforge.ganttproject.storage.ProjectDatabase
 import net.sourceforge.ganttproject.task.TaskManager
 import java.io.IOException
+import java.math.BigDecimal
 
 /**
  * This interface represents a project as a logical business entity, without any
@@ -47,6 +48,7 @@ interface IGanttProject {
   var description: String
   var organization: String
   var webLink: String
+  var budget: BigDecimal?
   val uIConfiguration: UIConfiguration
   val humanResourceManager: HumanResourceManager
   val roleManager: RoleManager

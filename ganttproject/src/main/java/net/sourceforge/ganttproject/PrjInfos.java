@@ -18,6 +18,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 package net.sourceforge.ganttproject;
 
+import java.math.BigDecimal;
+
 /**
  * Class to store the project information
  * 
@@ -35,6 +37,9 @@ public class PrjInfos {
 
   /** Web link for the project or for the company */
   private String _sWebLink;
+
+  /** Project budget */
+  private BigDecimal _budget;
 
   public PrjInfos() {
     this._sProjectName = "Untitled Gantt Project";
@@ -88,5 +93,15 @@ public class PrjInfos {
   /** sets the web link for the project or for the company. */
   public void setWebLink(String webLink) {
     _sWebLink = webLink;
+  }
+
+  /** @return the project budget. */
+  public BigDecimal getBudget() {
+    return _budget;
+  }
+
+  /** sets the project budget. */
+  public void setBudget(BigDecimal budget) {
+    _budget = budget;
   }
 }

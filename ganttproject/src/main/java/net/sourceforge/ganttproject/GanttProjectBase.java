@@ -579,6 +579,12 @@ abstract class GanttProjectBase implements IGanttProject, UIFacade {
   public abstract void setWebLink(@NotNull String webLink);
 
   @Override
+  public abstract @org.jetbrains.annotations.Nullable java.math.BigDecimal getBudget();
+
+  @Override
+  public abstract void setBudget(@org.jetbrains.annotations.Nullable java.math.BigDecimal budget);
+
+  @Override
   public abstract @NotNull UIConfiguration getUIConfiguration();
 
   @Override

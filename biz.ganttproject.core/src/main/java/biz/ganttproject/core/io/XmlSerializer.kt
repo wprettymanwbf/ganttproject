@@ -37,6 +37,7 @@ data class XmlProject (
   @get:JacksonXmlProperty(isAttribute = true, localName = "name") var name: String = "",
   @get:JacksonXmlProperty(isAttribute = true, localName = "company") var company: String = "",
   @get:JacksonXmlProperty(isAttribute = true, localName = "webLink") var webLink: String = "",
+  @get:JacksonXmlProperty(isAttribute = true, localName = "budget") var budget: String? = null,
   @get:JacksonXmlProperty(isAttribute = true, localName = "view-date") var viewDate: String = "",
   @get:JacksonXmlProperty(isAttribute = true, localName = "view-index") var viewIndex: Int = 0,
   @get:JacksonXmlProperty(isAttribute = true, localName = "gantt-divider-location") var ganttDividerLocation: Int = 300,

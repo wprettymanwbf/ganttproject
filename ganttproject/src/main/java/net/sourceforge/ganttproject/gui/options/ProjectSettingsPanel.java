@@ -52,6 +52,8 @@ public class ProjectSettingsPanel {
 
   private final JTextField tfWebLink;
 
+  private final JTextField tfBudget;
+
   private final JTextArea taDescr;
 
   private final IGanttProject myProject;
@@ -97,6 +99,12 @@ public class ProjectSettingsPanel {
     vbproject.add(tfWebLink);
     vbproject.add(new JPanel());
 
+    JPanel budgetPanel = new JPanel(new BorderLayout());
+    budgetPanel.add(new JLabel(language.getText("budget")), BorderLayout.WEST);
+    vbproject.add(budgetPanel);
+    vbproject.add(tfBudget = new JTextField());
+    vbproject.add(new JPanel());
+
     JPanel descrPanel = new JPanel(new BorderLayout());
     descrPanel.add(new JLabel(language.getText("shortDescription")), BorderLayout.WEST);
     vbproject.add(descrPanel);
@@ -114,9 +122,15 @@ public class ProjectSettingsPanel {
 
   public boolean applyChanges(boolean askForApply) {
     boolean hasChange;
+    java.math.BigDecimal currentBudget = myProject.getBudget();
+    java.math.BigDecimal newBudget = getBudget();
+    boolean budgetChanged = !java.util.Objects.equals(currentBudget, newBudget);
+    
     if (myProject.getProjectName().equals(tfName.getText())
         && myProject.getOrganization().equals(tfOrganization.getText())
-        && myProject.getWebLink().equals(tfWebLink.getText()) && myProject.getDescription().equals(taDescr.getText())) {
+        && myProject.getWebLink().equals(tfWebLink.getText()) 
+        && myProject.getDescription().equals(taDescr.getText())
+        && !budgetChanged) {
       hasChange = false;
     } else {
       hasChange = true;
@@ -126,6 +140,7 @@ public class ProjectSettingsPanel {
       myProject.setDescription(getProjectDescription());
       myProject.setOrganization(getProjectOrganization());
       myProject.setWebLink(getWebLink());
+      myProject.setBudget(getBudget());
     }
     return hasChange;
   }
@@ -134,6 +149,8 @@ public class ProjectSettingsPanel {
     tfName.setText(myProject.getProjectName());
     tfOrganization.setText(myProject.getOrganization());
     tfWebLink.setText(myProject.getWebLink());
+    java.math.BigDecimal budget = myProject.getBudget();
+    tfBudget.setText(budget != null ? budget.toPlainString() : "");
     taDescr.setText(myProject.getDescription());
   }
 
@@ -150,6 +167,19 @@ public class ProjectSettingsPanel {
   /** @return the web link */
   public String getWebLink() {
     return tfWebLink.getText();
+  }
+
+  /** @return the project budget */
+  public java.math.BigDecimal getBudget() {
+    String budgetText = tfBudget.getText().trim();
+    if (budgetText.isEmpty()) {
+      return null;
+    }
+    try {
+      return new java.math.BigDecimal(budgetText);
+    } catch (NumberFormatException e) {
+      return null;
+    }
   }
 
   /** @return the project description */
