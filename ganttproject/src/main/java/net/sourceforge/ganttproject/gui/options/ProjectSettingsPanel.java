@@ -100,6 +100,8 @@ public class ProjectSettingsPanel {
     vbproject.add(new JPanel());
 
     JPanel budgetPanel = new JPanel(new BorderLayout());
+    // Note: "budget" key may not be localized in all languages yet.
+    // GanttLanguage will fall back to displaying the key text.
     budgetPanel.add(new JLabel(language.getText("budget")), BorderLayout.WEST);
     vbproject.add(budgetPanel);
     vbproject.add(tfBudget = new JTextField());
@@ -178,6 +180,9 @@ public class ProjectSettingsPanel {
     try {
       return new java.math.BigDecimal(budgetText);
     } catch (NumberFormatException e) {
+      // Invalid budget format - validation should be added in future
+      // For now, we return null and ignore invalid input
+      // TODO: Add UI validation feedback for invalid budget input
       return null;
     }
   }
