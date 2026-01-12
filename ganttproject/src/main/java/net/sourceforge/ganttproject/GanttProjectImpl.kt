@@ -52,6 +52,7 @@ import net.sourceforge.ganttproject.task.*
 import net.sourceforge.ganttproject.task.event.createTaskListenerWithTimerBarrier
 import java.awt.Color
 import java.io.IOException
+import java.math.BigDecimal
 import java.net.URL
 import javax.swing.SwingUtilities
 
@@ -74,6 +75,7 @@ open class GanttProjectImpl(
   override var description: String = ""
   override var organization: String = ""
   override var webLink: String = ""
+  override var budget: BigDecimal? = null
 
   val language: GanttLanguage get() = GanttLanguage.getInstance()
   private val myCalendar = WeekendCalendarImpl()

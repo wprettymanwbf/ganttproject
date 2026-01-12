@@ -78,6 +78,7 @@ class XmlProjectImporter(private val ganttProject: GanttProjectImpl = GanttProje
     ganttProject.description = xmlProject.description?.trim() ?: ""
     ganttProject.organization = xmlProject.company
     ganttProject.webLink = xmlProject.webLink
+    ganttProject.budget = xmlProject.budget?.let { BigDecimal(it) }
     taskManager.isZeroMilestones = xmlProject.tasks.emptyMilestones
     taskManager.algorithmCollection.scheduler.setDiagnostic(RethrowingDiagnosticImpl())
 

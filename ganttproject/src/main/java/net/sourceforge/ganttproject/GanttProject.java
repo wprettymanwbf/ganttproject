@@ -640,6 +640,17 @@ public class GanttProject extends GanttProjectBase implements ResourceView, Gant
   }
 
   @Override
+  public java.math.@org.jetbrains.annotations.Nullable BigDecimal getBudget() {
+    return prjInfos.getBudget();
+  }
+
+  @Override
+  public void setBudget(java.math.@org.jetbrains.annotations.Nullable BigDecimal budget) {
+    prjInfos.setBudget(budget);
+    setAskForSave(true);
+  }
+
+  @Override
   public @NotNull HumanResourceManager getHumanResourceManager() {
     return getProjectImpl().getHumanResourceManager();
   }
