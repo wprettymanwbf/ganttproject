@@ -37,6 +37,7 @@ GanttProject is a free, open-source project management tool that provides many f
 - Task cost calculation
 - Manual and calculated cost modes
 - Resource-based cost calculation
+- Project-level budget tracking (NEW!)
 
 ✅ **Calendar Management**
 - Custom working time calendars
@@ -64,8 +65,8 @@ GanttProject is a free, open-source project management tool that provides many f
 - GanttProject: Manual resource management, no automatic leveling
 
 ⚠️ **Budgeting**
-- Microsoft Project: Comprehensive budget tracking with variance analysis
-- GanttProject: Basic cost calculation available, no dedicated budget vs. actual reporting
+- Microsoft Project: Comprehensive budget tracking with variance analysis, earned value management
+- GanttProject: Project-level budget field available (as of latest version), task-level cost calculation, basic budget tracking (no automated variance analysis yet)
 
 ⚠️ **Custom Fields**
 - Microsoft Project: Extensive custom field support with formulas
@@ -202,6 +203,19 @@ GanttProject supports many keyboard shortcuts for efficient task management:
 - Progress shown on Gantt bars
 - Use baselines to compare original vs. current plan
 
+### Setting a Project Budget
+
+**Microsoft Project:**
+- Project Information dialog → Budget field
+- Use Budget resources for detailed tracking
+- Earned Value analysis
+
+**GanttProject:**
+- Project → Properties → Budget field
+- Set overall project budget
+- Compare against task costs manually or via reports
+- Future versions may include automated budget variance analysis
+
 ## Best Practices for Migration
 
 1. **Clean Your Data**: Before importing, remove any Microsoft Project-specific customizations that might not translate well
@@ -217,6 +231,8 @@ GanttProject supports many keyboard shortcuts for efficient task management:
 6. **Set Up Calendars**: Configure working time calendars to match your organization's schedule
 
 7. **Create a New Baseline**: After importing and verifying, create a new baseline in GanttProject
+
+8. **Set Project Budget**: Use the new budget field in Project Properties to track overall project budget
 
 ## Frequently Asked Questions
 
