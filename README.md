@@ -13,6 +13,14 @@ GanttProject is a free project management app for desktops. It comes with:
 
 Visit http://ganttproject.biz to learn more.
 
+## Microsoft Project Compatibility
+
+GanttProject provides extensive compatibility with Microsoft Project, including the ability to import and export Microsoft Project files. For users migrating from Microsoft Project or working in mixed environments, please see our [Microsoft Project Compatibility Guide](MSPROJECT_COMPATIBILITY.md) for detailed information on:
+
+* Feature comparison between GanttProject and Microsoft Project
+* Migration guide and best practices
+* File format interoperability
+* Keyboard shortcuts and workflow tips
 
 ## License
 GanttProject is free and open-source software, distributed under GNU General Public License v3.
